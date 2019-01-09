@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import {Collapse} from 'react-collapse';
 import useToggle from '../useToggle';
 import './CollapsibleText.css';
 
@@ -12,7 +13,9 @@ export default function CollapsibleText({ children }) {
             <Button color="link" className="trigger" onClick={toggle}>
                 {triggerText}
             </Button>
-            <p>{expanded ? children : null}</p>
+            <Collapse isOpened={expanded}>
+                {children}
+            </Collapse>
         </div>
     );
 };
